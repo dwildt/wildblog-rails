@@ -1,3 +1,16 @@
+== WildBlog-Rails
+
+You can check the application running at 
+http://wildblog-rails.appspot.com/
+http://wildblog-rails.appspot.com/posts
+
+This application used Rails + Datamapper as the persistence API.
+
+I will work on this source to add more and more capabilities and play with GAE implementation for Ruby (JRuby). 
+
+The main source for this subject is 
+http://code.google.com/p/appengine-jruby/wiki/GettingStarted
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create 
