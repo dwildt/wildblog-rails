@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>View Source: <%= @path %></title>
+</head>
+<body style="background-color: #f0f0f0;">
+
+<div style="font-family:sans-serif; font-size:10pt; width: 20em;
+            background-color: #fff; border: thin solid Gray;
+            padding: 1em; margin: 2em;">
+<div style="font-weight: bold; font-size: 12pt;
+            margin-bottom: 9px; padding-bottom: 3px;
+            border-bottom: thin solid orange;"><%= @path %></div>
+  <%= image_tag "/images/back.gif", :size => '16x16', :border => 0,
+      :onClick => "back();" %>
+  <a href="javascript: void(0);" onClick="back();">..</a><br/>
+  <% @entries.sort.each do |entry|
+       is_file = File.file? File.join(@path, entry)
+       icon = entry[-4..-1].eql?('.jar') ? 'jar' : 'file'
+       type = is_file ? icon : 'dir'
+       entry += "/" unless is_file %>
+    <%= image_tag "/images/#{type}.gif", :size => '16x16', :border => 0,
+        :onclick => "location.href='?path=#{params[:path]}#{entry}'" %>
+    <%= link_to entry, :path => "#{params[:path]}#{entry}" %><br/>
+  <% end %>
+</div>
+
+</body>
+</html>
